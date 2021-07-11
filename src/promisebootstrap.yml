@@ -1,0 +1,119 @@
+spring.profiles.include: boot2, swagger
+spring.profiles.active: local , test
+server:
+  port: 8085
+
+configuration:
+  appgroup: '/api'
+  appversion : '/v2'
+  appcontext : '/promise'
+  projectName: "promise-service-v2"
+
+info:
+  component: promise-service-v2
+  build:
+    name:           promise-service
+    description:    service for estimated delivery dates
+    version: ${GRADLE_PROJECT_VERSION}
+  eureka:
+    region: ${eureka.client.region}
+    zone: ${eureka.instance.metadataMap.zone}
+    us-east-1b: discovery1
+    us-east-1c: discovery2
+    us-east-1d: discovery3
+dp:
+  username: admin
+  password: admin123
+
+spring:
+  application:
+    name: promise-service-v2
+  cloud:
+    config:
+      enabled: false
+      discovery:
+        enabled: true
+        service-id: configserver-v2
+      failFast: true
+      retry:
+        initialInterval:  10000
+        multiplier:       1.1
+        maxAttempts:      20
+        maxInterval:      70000
+    bus:
+      enabled: false
+    discovery:
+      enabled: false
+
+
+eureka:
+  client:
+    region: us-east-1
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone:  localhost
+  instance:
+    metadataMap:
+      build:
+        version: ${project.version}
+        tag: ${project.versionInfo.dockerTag}
+      container:
+        name: ${CONTAINER_NAME}
+        color: ${CONTAINER_COLOR}
+        environment: ${ENVIRONMENT_NAME}
+
+ribbon:
+  EnableZoneAffinity: false
+  IsSecure: false
+
+# Turns off request to configserver on /health endpoint
+# see https://github.com/spring-cloud/spring-cloud-config/issues/423
+health.config.enabled: false
+
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      enabled: false
+      discovery:
+        enabled: false
+    discovery:
+      enabled: false
+
+eureka:
+  client:
+    enabled: false
+    registerWithEureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone:  localhost
+
+---
+spring:
+  profiles: dockerEE
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+    discovery:
+      enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://${dp.username}:${dp.password}@${info.eureka.us-east-1b:local.jcp.net}:9001/eureka/,http://${dp.username}:${dp.password}@${info.eureka.us-east-1c:local.jcp.net}:9001/eureka/,http://${dp.username}:${dp.password}@${info.eureka.us-east-1d:local.jcp.net}:9001/eureka/
+  instance:
+    metadataMap:
+      build:
+        version: ${GRADLE_PROJECT_VERSION}
+        tag: ${GRADLE_PROJECT_DOCKER_TAG}
+      container:
+        name: \${CONTAINER_NAME}
+        color: \${CONTAINER_COLOR}
+        environment: ${ENVIRONMENT_NAME}
+
+ribbon:
+  EnableZoneAffinity: true
+  IsSecure: false

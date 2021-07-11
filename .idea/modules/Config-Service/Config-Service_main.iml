@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.path="$MODULE_DIR$/../../.." external.root.project.path="$MODULE_DIR$/../../.." external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
+  <component name="ExternalSystem" linkedProjectPath="$MODULE_DIR$/../../../SourcingTest" rootProjectPath="$MODULE_DIR$/../../../SourcingTest" />
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../../Config-Service/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../Config-Service/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../Config-Service/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Config-Service/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

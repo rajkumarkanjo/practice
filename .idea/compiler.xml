@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="Config-Plarform" target="1.8" />
+      <module name="Config-Plarform_main" target="1.8" />
+      <module name="Config-Plarform_test" target="1.8" />
+      <module name="Config-Service" target="1.8" />
+      <module name="Config-Service_main" target="1.8" />
+      <module name="Config-Service_test" target="1.8" />
+      <module name="DSA" target="1.8" />
+      <module name="DSA.main" target="1.8" />
+      <module name="DSA.test" target="1.8" />
+      <module name="GOG.main" target="1.8" />
+      <module name="GOG.test" target="1.8" />
+      <module name="HackKit" target="1.8" />
+      <module name="HackKit_main" target="1.8" />
+      <module name="HackKit_test" target="1.8" />
+      <module name="SourcingTest" target="1.8" />
+      <module name="SourcingTest.main" target="1.8" />
+      <module name="SourcingTest.test" target="1.8" />
+      <module name="Test-Config-Plarform_main" target="1.8" />
+      <module name="Test-Config-Plarform_test" target="1.8" />
+      <module name="Test-Config-Service_main" target="1.8" />
+      <module name="Test-Config-Service_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
